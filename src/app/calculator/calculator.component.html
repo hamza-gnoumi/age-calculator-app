@@ -1,0 +1,59 @@
+<div class="cal px-3 px-lg-5">
+  <div class=" date d-flex justify-content-center justify-content-lg-start gap-3">
+    <div class=" col-3">
+      <label for="day"
+        [ngClass]="{'wrong' : (year.errors&&year.touched) ||(month.errors&&month.touched) ||(day.errors&&day.touched)}">DAY</label>
+      <input id="day" class="form-control" type="number" min="1" [max]="maxday" placeholder="DD" maxlength="2" required
+        [(ngModel)]="entryDay" #day="ngModel" (change)="maxdate()"
+        [ngClass]="{'dirt' : (year.errors&&year.touched) ||(month.errors&&month.touched) ||(day.errors&&day.touched)}" />
+      <div *ngIf="day.touched && (day.dirty || day.invalid)" class="wrong">
+        <div *ngIf="day.errors?.['required']">This field is required.</div>
+        <div *ngIf="day.errors?.['min']||day.errors?.['max']">
+          Must be a valid day
+        </div>
+
+      </div>
+    </div>
+    <div class=" col-3">
+      <label for="month"
+        [ngClass]="{'wrong' : (year.errors&&year.touched) ||(month.errors&&month.touched) ||(day.errors&&day.touched)}">MONTH</label>
+      <input id="month" class="form-control" type="number" min="1" [max]="maxmonth" placeholder="MM" maxlength="2"
+        required [(ngModel)]="entryMonth" #month="ngModel" (change)="maxdate()"
+        [ngClass]="{'dirt' : (year.errors&&year.touched) ||(month.errors&&month.touched) ||(day.errors&&day.touched)}" />
+      <div *ngIf="month.invalid && (month.dirty || month.touched)" class="wrong">
+        <div *ngIf="month.errors?.['required']">This field is required.</div>
+        <div *ngIf="month.errors?.['min']||month.errors?.['max']">
+          Must be a valid month
+        </div>
+
+      </div>
+    </div>
+    <div class="col-3">
+      <label for="year"
+        [ngClass]="{'wrong' : (year.errors&&year.touched) ||(month.errors&&month.touched) ||(day.errors&&day.touched)}">YEAR</label>
+      <input id="year" class="form-control" type="number" placeholder="YYYY" maxlength="4" required [max]="currentYear"
+        required [(ngModel)]="entryYear" #year="ngModel" (change)="maxdate()"
+        [ngClass]="{'dirt' : (year.errors&&year.touched) ||(month.errors&&month.touched) ||(day.errors&&day.touched)}" />
+      <div *ngIf="year.invalid && (year.dirty || year.touched)" class="wrong">
+        <div *ngIf="year.errors?.['required']">This field is required.</div>
+        <div *ngIf="year.errors?.['max']">
+          Must be in the past
+        </div>
+      </div>
+    </div>
+    <button class="btn  btn-calcul" (click)="calculDate()" [disabled]="year.errors ||month.errors ||day.errors"><img
+        src="../../assets/images/icon-arrow.svg" alt="icon-arrow"></button>
+  </div>
+  <div class="result pt-5 ps-2">
+
+    <div class="text"><span class="years">{{affichage(nbreYears)}}</span>
+      <h2>years</h2>
+    </div>
+    <div class="text"><span class="months">{{affichage(nbreMonths)}}</span>
+      <h2>months</h2>
+    </div>
+    <div class="text"><span class="days">{{affichage(nbreDays)}}</span>
+      <h2>days</h2>
+    </div>
+  </div>
+</div>

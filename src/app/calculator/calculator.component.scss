@@ -1,0 +1,120 @@
+.cal {
+  background-color: var(--White);
+  padding: 50px 0;
+  border-radius: 10px;
+  border-bottom-right-radius: 50px;
+  margin: auto;
+  max-width: 841px;
+}
+
+.form-control {
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  font-weight: 800;
+  color: var(--Off-black);
+}
+
+.form-control:focus {
+  border-color: var(--Purple);
+  box-shadow: none !important;
+}
+
+.form-control::placeholder {
+  color: var(--Smokey-grey);
+  font-weight: 800;
+}
+
+label {
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 14px;
+  color: var(--Smokey-grey);
+}
+
+.dirt {
+  border-color: var(--Light-red);
+}
+
+.wrong {
+  color: var(--Light-red);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.date {
+  padding: 50px 0;
+  border-bottom: 1px solid var(--Light-grey);
+  position: relative;
+
+}
+
+.btn-calcul {
+  border-radius: 50%;
+  background-color: var(--Purple);
+  position: absolute;
+  right: 0;
+  bottom: -25px;
+}
+
+.btn-calcul:disabled {
+  opacity: 1 !important;
+}
+
+.btn-calcul>img {
+  max-width: 100%;
+}
+
+@media (max-width: 991px) {
+  .btn-calcul {
+    right: 50%;
+    transform: translateX(50%);
+    width: 40px;
+    height: 40px;
+  }
+
+  .wrong>div {
+    font-size: 9px;
+  }
+
+}
+
+.btn-calcul:hover {
+  background-color: var(--Off-black);
+}
+
+.result .text {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.result .text span {
+  color: var(--Purple);
+  font-weight: 800;
+  font-size: clamp(3rem, 8vw, 5rem);
+
+}
+
+.result .text h2 {
+  font-size: clamp(3rem, 8vw, 5rem);
+  color: var(--Off-black);
+  font-weight: 800;
+}
+
+/*
+.alert {
+  background-color: red;
+  width: 200px;
+  height: 100px;
+
+}*/
+/*
+.ng-invalid:not(form) {
+  border: 5px solid #a94442;
+}*/
+
+.alert div {
+  background-color: #fed3d3;
+  color: #820000;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
